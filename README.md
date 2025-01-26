@@ -17,7 +17,7 @@ Akan Name Generator is a web application that generates Akan names based on the 
 1. Created arepository:
    https://github.com/PrincessOkaroni/Akan-Name-Generator
 2. Navigate to the project directory:
-   cd Akan
+   cd AKAN
 3. Initiate git
 
 ## BDD (Behavior Driven Development)
