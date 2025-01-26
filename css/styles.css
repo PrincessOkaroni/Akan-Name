@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: .vscode/images/background.jpg;
+  background-color: .vscode/images/background.jpeg;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,7 +9,7 @@ body {
 }
 
 .container {
-  background: .vscode/images/background.jpg;
+  background: .vscode/images/background.jpeg;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
