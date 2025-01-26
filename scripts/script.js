@@ -1,17 +1,46 @@
 function generateAkanName() {
-  const birthday = document.getElementById("birthday").value;
-  const gender = document.getElementById("gender").value;
-  const result = document.getElementById("result");
+  const day = parseInt(document.getElementById("Day").value);
+  const month = parseInt(document.getElementById("Month").value);
+  const year = parseInt(document.getElementById("year").value);
+  const gender = document.querySelector('input[name="gender"]:checked').value;
+}
 
-  if (!isValidDate(day, month, year)) {
-    alert("Please enter a valid date.");
-    return;
+let akanName;
+if (gender === "male") {
+  akanName = maleNames[dayOfWeek];
+} else if (gender === "female") {
+  akanName = femaleNames[dayOfWeek];
+}
+
+if (!isValidDate(day, month, year)) {
+  alert("Please enter a valid date.");
+  return;
+}
+
+document.getElementById("result").textContent = `Your Akan name is ${akanName}`;
+
+function isValidDate(day, month, year) {
+  if (day <= 0 || day > 31 || month <= 0 || month > 12) {
+    return false;
   }
+  return true;
+}
 
-  const dayOfWeek = calculateDayOfWeek(day, month, year);
-  const dayOfWeek = calculateDayOfWeek(date);
-  const akanName = getAkanName(dayOfWeek, gender);
+function calculateDayOfWeek(date) {
+  const CC = Math.floor(date.getFullYear() / 100);
+  const YY = date.getFullYear() % 100;
+  const MM = date.getMonth() + 1;
+  const DD = date.getDate();
+  return (
+    (Math.floor(CC / 4 - 2 * CC - 1) +
+      Math.floor((5 * YY) / 4) +
+      Math.floor((26 * (MM + 1)) / 10) +
+      DD) %
+    7
+  );
+}
 
+function getAkanName(dayOfWeek, gender) {
   const maleNames = [
     "Kwasi",
     "Kwadwo",
@@ -31,26 +60,11 @@ function generateAkanName() {
     "Ama",
   ];
 
-  let akanName;
   if (gender === "male") {
-    akanName = maleNames[dayOfWeek];
-  } else if (gender === "female") {
-    akanName = femaleNames[dayOfWeek];
+    return maleNames[dayOfWeek];
+  } else {
+    return femaleNames[dayOfWeek];
   }
-
-  result.textContent = `Your Akan name is ${akanName}`;
 }
 
-function calculateDayOfWeek(date) {
-  const CC = Math.floor(date.getFullYear() / 100);
-  const YY = date.getFullYear() % 100;
-  const MM = date.getMonth() + 1;
-  const DD = date.getDate();
-  return (
-    (Math.floor(CC / 4 - 2 * CC - 1) +
-      Math.floor((5 * YY) / 4) +
-      Math.floor((26 * (MM + 1)) / 10) +
-      DD) %
-    7
-  );
-}
+console.log(name);
