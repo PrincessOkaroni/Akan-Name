@@ -3,19 +3,14 @@ function generateAkanName() {
   const month = parseInt(document.getElementById("Month").value);
   const year = parseInt(document.getElementById("year").value);
   const gender = document.querySelector('input[name="gender"]:checked').value;
-}
-
-let akanName;
-if (gender === "male") {
-  akanName = maleNames[dayOfWeek];
-} else if (gender === "female") {
-  akanName = femaleNames[dayOfWeek];
-}
-
 if (!isValidDate(day, month, year)) {
   alert("Please enter a valid date.");
   return;
 }
+
+const date = new Date(year, month - 1, day);
+const dayOfWeek = calculateDayOfWeek(date);
+const akanName = getAkanName(dayOfWeek, gender);
 
 document.getElementById("result").textContent = `Your Akan name is ${akanName}`;
 
@@ -66,5 +61,3 @@ function getAkanName(dayOfWeek, gender) {
     return femaleNames[dayOfWeek];
   }
 }
-
-console.log(name);
