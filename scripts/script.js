@@ -3,13 +3,14 @@ function generateAkanName() {
   const gender = document.getElementById("gender").value;
   const result = document.getElementById("result");
 
-  if (!birthday || !gender) {
-    result.textContent = "Please enter a valid date and select your gender.";
+  if (!isValidDate(day, month, year)) {
+    alert("Please enter a valid date.");
     return;
   }
 
-  const date = new Date(birthday);
+  const dayOfWeek = calculateDayOfWeek(day, month, year);
   const dayOfWeek = calculateDayOfWeek(date);
+  const akanName = getAkanName(dayOfWeek, gender);
 
   const maleNames = [
     "Kwasi",
