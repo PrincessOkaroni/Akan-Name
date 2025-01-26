@@ -8,7 +8,7 @@ Akan Name Generator is a web application that generates Akan names based on the 
 
 ## Author(s) Information
 
-- **PURITY NEKESA**
+- **OKARONI PURITY NEKESA**
   - GitHub: https://github.com/PrincessOkaroni/Akan-Name-Generator
   - Email: nekesapurity20@gmail.com
 
