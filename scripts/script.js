@@ -8,7 +8,7 @@ if (!isValidDate(day, month, year)) {
   return;
 }
 
-const date = new Date(year, month - 1, day);
+const date = Date(year, month - 1, day);
 const dayOfWeek = calculateDayOfWeek(date);
 const akanName = getAkanName(dayOfWeek, gender);
 
