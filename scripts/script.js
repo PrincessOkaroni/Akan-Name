@@ -3,12 +3,13 @@ function generateAkanName() {
   const month = parseInt(document.getElementById("Month").value);
   const year = parseInt(document.getElementById("year").value);
   const gender = document.querySelector('input[name="gender"]:checked').value;
-if (!isValidDate(day, month, year)) {
-  alert("Please enter a valid date.");
-  return;
+  if (!isValidDate(day, month, year)) {
+    alert("Please enter a valid date.");
+    return;
+  }
 }
 
-const date = Date(year, month - 1, day);
+const date = new Date(year, month - 1, day);
 const dayOfWeek = calculateDayOfWeek(date);
 const akanName = getAkanName(dayOfWeek, gender);
 
